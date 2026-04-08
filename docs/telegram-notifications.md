@@ -10,16 +10,16 @@ sidebar_position: 10
 
 1. Откройте Telegram и создайте новую группу (New Group)
 
-![](assets/telegram-notifications/Screenshot_1.png)
+> *Скриншот будет добавлен*
 
 2. Добавьте в созданную группу бота @ProdAvenAdminBot
 
-![](assets/telegram-notifications/Screenshot_2.png)
-![](assets/telegram-notifications/Screenshot_3.png)
+> *Скриншот будет добавлен*
+> *Скриншот будет добавлен*
 
 3. В чате с группой отправьте команду `/get-id`
 
-![](assets/telegram-notifications/Screenshot_4.png)
+> *Скриншот будет добавлен*
 
 4. Бот отправит вам ID чата. Скопируйте его полностью, включая знак минус, если он есть
 
@@ -27,7 +27,7 @@ sidebar_position: 10
 
 6. Вставьте скопированный ID чата в соответствующее поле настроек
 
-![](assets/telegram-notifications/Screenshot_5.png)
+> *Скриншот будет добавлен*
 
 ## Получение уведомлений
 
@@ -37,10 +37,10 @@ sidebar_position: 10
 
 При переводе диалога на оператора бот сразу отправит уведомление:
 
-![](assets/telegram-notifications/Screenshot_6.png)
+> *Скриншот будет добавлен*
 
 ### Напоминание через 24 часа
 
 Если диалог не был обработан, через сутки придет повторное уведомление:
 
-![](assets/telegram-notifications/Screenshot_7.png)
+> *Скриншот будет добавлен*
