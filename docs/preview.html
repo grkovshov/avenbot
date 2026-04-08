@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>AVEN Docs Preview</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:#F8FAFC;color:#0F1729;display:flex;flex-direction:column;height:100vh}
+.topbar{height:56px;background:#fff;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;padding:0 24px;flex-shrink:0}
+.topbar-logo{color:#2563EB;font-weight:700;font-size:20px;letter-spacing:2px}
+.topbar-sep{margin:0 16px;color:#E2E8F0}
+.topbar-title{color:#64748B;font-size:14px;font-weight:500}
+.layout{display:flex;flex:1;overflow:hidden}
+.sidebar{width:260px;background:#fff;border-right:1px solid #E2E8F0;overflow-y:auto;padding:16px 0;flex-shrink:0}
+.sidebar-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#94A3B8;padding:16px 20px 8px;font-weight:600}
+.sidebar a{display:flex;align-items:center;gap:10px;padding:10px 20px;color:#334155;text-decoration:none;font-size:14px;font-weight:500;transition:all .15s;border-left:3px solid transparent;cursor:pointer}
+.sidebar a:hover{background:#F8FAFC;color:#0F1729}
+.sidebar a.active{color:#2563EB;background:#EFF6FF;border-left-color:#2563EB}
+.sidebar a svg{stroke:#64748B;flex-shrink:0}
+.sidebar a.active svg{stroke:#2563EB}
+.main{flex:1;overflow-y:auto;padding:40px 60px;max-width:900px}
+.main h1{font-size:28px;font-weight:700;color:#0F1729;margin-bottom:24px}
+.main h2{font-size:20px;font-weight:600;color:#0F1729;margin:32px 0 16px}
+.main p{line-height:1.7;margin-bottom:16px;color:#334155}
+.main a{color:#2563EB;text-decoration:none}
+.main ol{list-style:none;counter-reset:step;padding:0}
+.main ol>li{counter-increment:step;position:relative;padding:20px 24px 20px 64px;margin-bottom:16px;background:#fff;border:1px solid #E2E8F0;border-radius:10px}
+.main ol>li::before{content:counter(step);position:absolute;left:16px;top:20px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:#EFF6FF;color:#2563EB;font-weight:700;border-radius:50%;font-size:15px}
+.main ol>li p{margin-bottom:12px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin:16px 0 24px}
+.feature-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:20px}
+.feature-card strong{color:#0F1729}
+.callout{background:#EFF6FF;border-left:3px solid #2563EB;padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0;color:#1E40AF;font-size:14px}
+code{background:#F1F5F9;color:#7C3AED;padding:2px 6px;border-radius:4px;font-size:13px;border:1px solid #E2E8F0}
+.doc-img{max-width:100%;border-radius:8px;border:1px solid #E2E8F0;margin:8px 0;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.img-placeholder{background:#F1F5F9;border:2px dashed #CBD5E1;border-radius:8px;padding:24px;text-align:center;color:#94A3B8;font-size:13px;margin:8px 0}
+.page{display:none}
+.page.active{display:block}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-logo" style="display:flex;align-items:center;gap:10px;"><svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="avenG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2563EB"/><stop offset="100%" style="stop-color:#1E40AF"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#avenG)"/><path d="M16 6L10 22h3l1.2-4h3.6l1.2 4h3L16 6zm-1 10l1-3.5 1 3.5h-2z" fill="#fff"/></svg><span>AVEN</span></div><span class="topbar-sep">|</span><span class="topbar-title">Документация</span></div>
+<div class="layout">
+<nav class="sidebar">
+<div class="sidebar-label">Руководство</div>
+<a data-page="intro" class="active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Начало работы</span></a>
+<a data-page="yclients"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>Подключение к YClients</span></a>
+<a data-page="assistant"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Создание ассистента</span></a>
+<a data-page="notifications"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span>Настройка уведомлений</span></a>
+<a data-page="telegram-setup"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Подключение Telegram</span></a>
+<a data-page="max"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Подключение Max</span></a>
+<a data-page="whatsapp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Подключение WhatsApp</span></a>
+<a data-page="chats"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>Мониторинг чатов</span></a>
+<a data-page="telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span>Telegram бот + Business</span></a>
+<a data-page="telegram-notifications"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Уведомления в Telegram</span></a>
+<div class="sidebar-label" style="margin-top:12px;border-top:1px solid #E2E8F0;padding-top:16px;">Служебное</div>
+<a data-page="screenshots-list" style="color:#F59E0B;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M3 9h6"/><path d="M3 15h6"/></svg><span>Список скриншотов</span></a>
+</nav>
+<main class="main">
+
+<div class="page active" id="page-intro">
+<h1>Начало работы</h1>
+<p>Добро пожаловать в документацию AvenBot — вашего надёжного ИИ-ассистента для бизнеса!</p>
+<p>AvenBot помогает автоматизировать процессы обработки сообщений, повысить эффективность общения с клиентами и улучшить качество обслуживания.</p>
+<p>Наш сервис предлагает интеллектуальные решения для работы с популярными мессенджерами Telegram, WhatsApp и Max.</p>
+<h2>Возможности</h2>
+<div class="features-grid">
+  <div class="feature-card"><strong>Автоматические ответы</strong><br>ИИ-ассистент отвечает на сообщения клиентов 24/7</div>
+  <div class="feature-card"><strong>Поддержка мессенджеров</strong><br>Работа с Telegram, WhatsApp и Max</div>
+  <div class="feature-card"><strong>Бизнес-интеграция</strong><br>Подключение к YClients</div>
+  <div class="feature-card"><strong>Персонализация</strong><br>Настройка бота под специфику вашего бизнеса</div>
+  <div class="feature-card"><strong>Уведомления</strong><br>Гибкая настройка каскадных уведомлений</div>
+</div>
+<h2>Быстрый старт</h2>
+<p>Перейдите на <a href="https://platform.avenbot.ru" target="_blank">платформу AvenBot</a> или установите приложение в YClients.</p>
+<ol>
+  <li>Подключение к YClients</li>
+  <li>Создание ассистента</li>
+  <li>Настройка уведомлений</li>
+  <li>Подключение каналов связи: Telegram, WhatsApp, Max</li>
+  <li>Мониторинг чатов</li>
+</ol>
+</div>
+
+<div class="page" id="page-yclients">
+<h1>Подключение к YClients</h1>
+<ol>
+  <li><p>Перейдите в маркетплейс YClients и найдите приложение AvenBot, либо откройте <a href="https://platform.avenbot.ru">platform.avenbot.ru</a> и нажмите кнопку "Подключить"</p><div class="img-placeholder">Скриншот: yclients-step1.png (нужно предоставить)</div></li>
+  <li><p>В появившемся окне нажмите "Продолжить"</p><div class="img-placeholder">Скриншот: yclients-step2.png (нужно предоставить)</div></li>
+  <li><p>Авторизуйтесь через Яндекс аккаунт</p><div class="img-placeholder">Скриншот: yclients-step3.png (нужно предоставить)</div></li>
+  <li><p>После авторизации нажмите кнопку для создания ассистента</p><div class="img-placeholder">Скриншот: yclients-step4.png (нужно предоставить)</div></li>
+</ol>
+</div>
+
+<div class="page" id="page-assistant">
+<h1>Создание ассистента</h1>
+<ol>
+  <li><p>Заполните название компании и выберите филиал</p><div class="img-placeholder">Скриншот: assistant-step1.png (нужно предоставить)</div></li>
+  <li><p>После создания ассистент появится в списке</p><img class="doc-img" src="assets/aven/assistant-step2.png" /></li>
+  <li><p>Дождитесь завершения инициализации ассистента</p><img class="doc-img" src="assets/aven/assistant-step3.png" /></li>
+</ol>
+</div>
+
+<div class="page" id="page-notifications">
+<h1>Настройка уведомлений</h1>
+<ol>
+  <li><p>Перейдите на вкладку "Правила" — здесь находятся базовые шаблоны уведомлений</p><img class="doc-img" src="assets/aven/notifications-step1.png" /></li>
+  <li><p>Настройте каскад уведомлений под ваши нужды</p><img class="doc-img" src="assets/aven/notifications-step2.png" /></li>
+</ol>
+</div>
+
+<div class="page" id="page-telegram-setup">
+<h1>Подключение Telegram</h1>
+<ol>
+  <li><p>Перейдите в раздел "Каналы"</p><img class="doc-img" src="assets/aven/telegram-setup-step1.png" /></li>
+  <li><p>Нажмите "Добавить канал" и выберите тип Telegram</p><img class="doc-img" src="assets/aven/telegram-setup-step2.png" /></li>
+  <li><p>Создайте канал — если нет бот-токена, система предложит привязку через номер</p><div class="img-placeholder">Скриншот: telegram-setup-step3.png (нужно предоставить)</div></li>
+  <li><p>Отсканируйте QR-код для авторизации</p><div class="img-placeholder">Скриншот: telegram-setup-step4.png (нужно предоставить)</div></li>
+</ol>
+<div class="callout">Для расширенной настройки через бот-токен и Telegram Business смотрите раздел "Telegram бот + Business".</div>
+</div>
+
+<div class="page" id="page-max">
+<h1>Подключение Max</h1>
+<ol>
+  <li><p>Перейдите в раздел "Каналы" и выберите тип Max</p><img class="doc-img" src="assets/aven/max-step1.png" /></li>
+  <li><p>Отсканируйте QR-код в приложении Max для авторизации</p><div class="img-placeholder">Скриншот: max-step2.png (нужно предоставить)</div></li>
+</ol>
+</div>
+
+<div class="page" id="page-whatsapp">
+<h1>Подключение WhatsApp</h1>
+<p>Подробная инструкция из 8 шагов по подключению WhatsApp.</p>
+<ol>
+  <li>Перейдите на страницу управления ботами</li>
+  <li>Выберите "Каналы"</li>
+  <li>Нажмите кнопку "+ Добавить канал"</li>
+  <li>Выберите "Тип" → WhatsApp и нажмите "Создать"</li>
+  <li>Появится новый канал WhatsApp</li>
+  <li>Нажмите на кнопку с QR-кодом</li>
+  <li>Отсканируйте QR-код через приложение WhatsApp</li>
+  <li>После успешного добавления отобразится статус подключения</li>
+</ol>
+<p><em>Скриншоты для этого раздела уже есть в репозитории.</em></p>
+</div>
+
+<div class="page" id="page-chats">
+<h1>Мониторинг чатов</h1>
+<p>На вкладке "Чаты" вы можете отслеживать все диалоги и проверять доставку уведомлений.</p>
+<img class="doc-img" src="assets/aven/chats-overview.png" />
+</div>
+
+<div class="page" id="page-telegram">
+<h1>Telegram бот + Business</h1>
+<p>Для корректной работы бота у вас должен быть подключён Telegram Premium.</p>
+<h2>Создание бота</h2>
+<ol>
+  <li>Перейдите в <a href="https://t.me/BotFather">@BotFather</a></li>
+  <li>Запустите мини-приложение и выберите добавление нового бота</li>
+  <li>Заполните все поля, после нажмите "Создать бота"</li>
+  <li>Включите Business mode в настройках бота</li>
+  <li>Скопируйте токен бота</li>
+</ol>
+<h2>Подключение Telegram Business</h2>
+<ol>
+  <li>Добавьте новый канал связи на платформе</li>
+  <li>Вставьте токен бота в поле настроек</li>
+  <li>В Telegram перейдите в "Telegram Бизнес"</li>
+  <li>Перейдите в "Чат боты"</li>
+  <li>Добавьте ссылку на бота и включите все 1-2-1 сообщения</li>
+</ol>
+<p><em>Скриншоты для этого раздела уже есть в репозитории.</em></p>
+</div>
+
+<div class="page" id="page-telegram-notifications">
+<h1>Уведомления в Telegram</h1>
+<p>Для получения уведомлений о переводах на оператора необходимо настроить групповой чат с ботом.</p>
+<h2>Создание группы</h2>
+<ol>
+  <li>Откройте Telegram и создайте новую группу</li>
+  <li>Добавьте в группу бота @ProdAvenAdminBot</li>
+  <li>Отправьте команду <code>/get-id</code></li>
+  <li>Скопируйте ID чата (включая знак минус)</li>
+  <li>Вставьте ID в настройках бота на платформе</li>
+</ol>
+<h2>Получение уведомлений</h2>
+<p>После настройки бот будет автоматически отправлять уведомления в групповой чат при переводе на оператора и напоминание через 24 часа.</p>
+<p><em>Скриншоты для этого раздела уже есть в репозитории.</em></p>
+</div>
+
+<div class="page" id="page-screenshots-list">
+<h1>Список необходимых скриншотов</h1>
+<p>Полный перечень скриншотов для документации. Зелёным отмечены уже имеющиеся, красным — те, которые нужно предоставить.</p>
+
+<h2>1. Подключение к YClients</h2>
+<ol>
+  <li style="border-left:3px solid #EF4444;"><p><strong style="color:#EF4444;">НУЖЕН</strong> — <code>yclients-step1.png</code></p><p>Маркетплейс YClients с кнопкой "Подключить"</p></li>
+  <li style="border-left:3px solid #EF4444;"><p><strong style="color:#EF4444;">НУЖЕН</strong> — <code>yclients-step2.png</code></p><p>Окно подтверждения подключения AvenBot к YCLIENTS</p></li>
+  <li style="border-left:3px solid #EF4444;"><p><strong style="color:#EF4444;">НУЖЕН</strong> — <code>yclients-step3.png</code></p><p>Окно авторизации через Яндекс</p></li>
+  <li style="border-left:3px solid #EF4444;"><p><strong style="color:#EF4444;">НУЖЕН</strong> — <code>yclients-step4.png</code></p><p>Экран создания ассистента после авторизации</p></li>
+</ol>
+
+<h2>2. Создание ассистента</h2>
+<ol>
+  <li style="border-left:3px solid #EF4444;"><p><strong style="color:#EF4444;">НУЖЕН</strong> — <code>assistant-step1.png</code></p><p>Форма создания ассистента (название компании, выбор филиала)</p></li>
+  <li style="border-left:3px solid #22C55E;"><p><strong style="color:#22C55E;">ЕСТЬ</strong> — <code>assistant-step2.png</code></p><p>Список ассистентов</p></li>
+  <li style="border-left:3px solid #22C55E;"><p><strong style="color:#22C55E;">ЕСТЬ</strong> — <code>assistant-step3.png</code></p><p>Статус инициализации ассистента</p></li>
+</ol>
+
+<h2>3. Настройка уведомлений</h2>
+<ol>
+  <li style="border-left:3px solid #22C55E;"><p><strong style="color:#22C55E;">ЕСТЬ</strong> — <code>notifications-step1.png</code></p><p>Страница "Правила уведомлений"</p></li>
+  <li style="border-left:3px solid #22C55E;"><p><strong style="color:#22C55E;">ЕСТЬ</strong> — <code>notifications-step2.png</code></p><p>Настройка каскада уведомлений</p></li>
+</ol>
+
+<h2>4. Подключение Telegram</h2>
+<ol>
+  <li style="border-left:3px solid #22C55E;"><p><strong style="color:#22C55E;">ЕСТЬ</strong> — <code>telegram-setup-step1.png</code></p><p>Страница управления каналами</p></li>
+  <li style="border-left:3px solid #22C55E;"><p><strong style="color:#22C55E;">ЕСТЬ</strong> — <code>telegram-setup-step2.png</code></p><p>Выбор типа канала</p></li>
+  <li style="border-left:3px solid #EF4444;"><p><strong style="color:#EF4444;">НУЖЕН</strong> — <code>telegram-setup-step3.png</code></p><p>Создание канала Telegram (привязка через номер телефона)</p></li>
+  <li style="border-left:3px solid #EF4444;"><p><strong style="color:#EF4444;">НУЖЕН</strong> — <code>telegram-setup-step4.png</code></p><p>QR-код для авторизации в Telegram</p></li>
+</ol>
+
+<h2>5. Подключение Max</h2>
+<ol>
+  <li style="border-left:3px solid #22C55E;"><p><strong style="color:#22C55E;">ЕСТЬ</strong> — <code>max-step1.png</code></p><p>Выбор типа Max в каналах</p></li>
+  <li style="border-left:3px solid #EF4444;"><p><strong style="color:#EF4444;">НУЖЕН</strong> — <code>max-step2.png</code></p><p>QR-код для авторизации в Max</p></li>
+</ol>
+
+<h2>6. Мониторинг чатов</h2>
+<ol>
+  <li style="border-left:3px solid #22C55E;"><p><strong style="color:#22C55E;">ЕСТЬ</strong> — <code>chats-overview.png</code></p><p>Страница мониторинга чатов</p></li>
+</ol>
+
+<div style="margin-top:32px;padding:20px;background:#FEF2F2;border:1px solid #FECACA;border-radius:10px;">
+  <h2 style="color:#DC2626;margin-top:0;">Итого нужно предоставить: 8 скриншотов</h2>
+  <ol>
+    <li><code>yclients-step1.png</code> — Маркетплейс YClients, кнопка "Подключить"</li>
+    <li><code>yclients-step2.png</code> — Окно подтверждения подключения</li>
+    <li><code>yclients-step3.png</code> — Авторизация через Яндекс</li>
+    <li><code>yclients-step4.png</code> — Экран после авторизации</li>
+    <li><code>assistant-step1.png</code> — Форма создания ассистента</li>
+    <li><code>telegram-setup-step3.png</code> — Создание канала Telegram</li>
+    <li><code>telegram-setup-step4.png</code> — QR-код Telegram</li>
+    <li><code>max-step2.png</code> — QR-код Max</li>
+  </ol>
+</div>
+<div class="callout" style="margin-top:16px;">Все скриншоты сохраняйте в папку <code>docs/assets/aven/</code> с указанными выше именами файлов.</div>
+</div>
+
+</main>
+</div>
+<script>
+document.querySelectorAll('.sidebar a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelectorAll('.sidebar a').forEach(x => x.classList.remove('active'));
+    a.classList.add('active');
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + a.dataset.page).classList.add('active');
+    document.querySelector('.main').scrollTop = 0;
+  });
+});
+</script>
+</body>
+</html>
