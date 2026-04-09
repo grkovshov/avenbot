@@ -64,10 +64,10 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'AVEN',
+        title: '',
         logo: {
-          alt: 'AvenBot Logo',
-          src: 'img/logo.svg',
+          alt: 'AVEN',
+          src: 'img/logo.png',
         },
         items: [
           {
